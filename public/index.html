@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <body
+    style="
+      height: 50px;
+      width: 99%;
+      border: 1px solid #4caf50;
+      display: flex;
+      justify-content: space-between;
+    "
+  >
+    <script src="../index.js"></script>
+
+    <form action="/" method="POST">
+      <label>USER1</label>
+      <input name="msg" type="text" />
+      <input style="display: none" name="user" type="text" value="USER1" />
+      <button type="submit">Send to User 2</button>
+    </form>
+
+    <form action="/" method="POST">
+      <label>USER2</label>
+      <input name="msg" type="text" />
+      <input style="display: none" name="user" type="text" value="USER2" />
+      <button type="submit">Send to User 1</button>
+    </form>
+  </body>
+</html>
