@@ -7,44 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- <h2><%= user.users %></h2>
-    <h5><%= user.enc %></h5>
-    <h4><%= user.dec %></h4> -->
-
-    <!-- <script> -->
-
     <% var user = user %>
 
-    <!-- use script tag to access ejs data and local storage -->
     <script>
-      let value;
-        let user = <%- JSON.stringify(user) %>;
-        localStorage.setItem(user.users, JSON.stringify(user));
+      let user = <%- JSON.stringify(user) %>;
+      localStorage.setItem(user.user, JSON.stringify(user));
 
-        for (var i = 0; i < localStorage.length; i++) {
-          var key = localStorage.key(i);
-          value = localStorage.getItem(key);
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        let values = localStorage.getItem(key);
 
-          let display = value.replace(",", `\n`);
-          // let final_val = display.replace("{", `\r\n`);
+        let display = values.replace(/[{},]/g, `\n`).replace(/["]/g, "");
 
-          document.writeln(display)
-        }
+        document.writeln(`<h4>${display}</h4>`)
+
+      }
     </script>
-
-    <!-- </script> -->
   </body>
 </html>
-
-<!-- 
-//   let keyvalue = user;
-//   let user = JSON.stringify(user);
-//   localStorage.setItem("info", JSON.stringify(user));
-// let key = localStorage.getItem(user)
-// console.log(key);
-
-//   for (var i = 0; i < localStorage.length; i++) {
-//     var key = localStorage.key(i);
-//     value = localStorage.getItem(key);
-//   }
-//   document.writeln(value) -->
